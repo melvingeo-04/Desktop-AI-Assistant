@@ -1,227 +1,376 @@
-# 🌟 JARVIS Desktop AI Assistant
+# JARVIS — Desktop AI Assistant
 
-![JARVIS](https://img.shields.io/badge/JARVIS-AI-ff8c00?style=for-the-badge&logo=jarvis)
-![Python](https://img.shields.io/badge/Python-3.8+-blue?style=for-the-badge&logo=python)
-![PyQt](https://img.shields.io/badge/PyQt-6.5+-green?style=for-the-badge&logo=pyqt)
+> **A voice-first desktop AI assistant that combines conversational AI, persistent memory, multimodal perception, and controlled computer automation through a futuristic desktop interface.**
 
-> **Desktop AI Assistant** is an advanced, open-source desktop application that brings the power of AI directly to your computer. Built with Python, PyQt6, and cutting-edge AI models, JARVIS acts as your intelligent personal assistant, productivity booster, and creative partner.
+JARVIS is a Python-based desktop AI assistant designed to interact naturally with a computer through **voice and keyboard input**.
 
-## ✨ Key Features
+It combines AI reasoning with a modular action system, local memory, computer interaction, and a custom HUD to turn natural-language requests into useful desktop actions.
 
-### 🧠 Advanced AI Capabilities
-- **LLM Integration**: Powered by multiple AI models including Google Gemini, OpenAI, and more (customizable via API keys)
-- **Voice Interaction**: Natural language understanding with Text-to-Speech (TTS) and Speech-to-Text (STT) support
-- **Smart Context**: Maintains conversation history and user preferences for personalized interactions
-- **Creative Tools**: Image generation, code assistance, and content creation
+The project is actively evolving toward a **hybrid AI architecture**, combining cloud intelligence with local LLMs through Ollama.
 
-### 🎨 Immersive UI Experience
-- **Holographic HUD**: 3D holographic interface with stunning animations and visualizations
-- **Customizable Themes**: Full color customization with live previews and automatic regeneration
-- **Dynamic Visuals**: Real-time waveform analysis, particle effects, and video playback
-- **Modern Design**: Sleek, futuristic interface with dark mode and smooth transitions
+---
 
-### 🚀 Powerful Productivity Features
-- **Smart Task Management**: Create, track, and manage tasks with AI-powered scheduling
-- **File Organization**: Automatic file organization and cleanup suggestions
-- **System Automation**: Control system settings and run custom scripts
-- **Multi-Plugin Support**: Extend functionality with plugins for file management, system utilities, and more
+## ✨ Features
 
-### 🌐 Seamless Connectivity
-- **Web Automation**: Browser control and task automation through Puppeteer
-- **Communication**: Send messages and notifications through connected platforms
-- **Information Retrieval**: Real-time access to weather, news, and general knowledge
-- **Data Sync**: Cloud synchronization for seamless cross-device experience
+### 🧠 AI Assistant
+
+- Google Gemini-powered conversational intelligence
+- Natural-language task understanding
+- Context-aware conversations
+- Persistent local memory
+- Intelligent task and action routing
+- Keyboard and voice interaction
+
+### 🎙️ Voice Interaction
+
+- Wake-word activation
+- Speech-to-text input
+- Text-to-speech responses
+- Natural voice conversations
+- Voice activity feedback
+
+### 🖥️ Desktop Automation
+
+JARVIS can interact with the desktop through controlled application actions, including:
+
+- Launching applications
+- Browser interaction
+- File operations
+- System utilities
+- Media control
+- Reminders
+- Information retrieval
+- Other modular desktop actions
+
+### 👁️ Multimodal Interaction
+
+JARVIS is designed to work beyond text by supporting visual interaction capabilities such as:
+
+- Screen analysis
+- Webcam analysis
+- Visual understanding
+- AI-assisted interpretation of on-screen content
+
+### 🎨 JARVIS HUD
+
+A custom PyQt-based interface provides a futuristic control layer for the assistant.
+
+- Holographic-style HUD
+- Animated interface elements
+- Assistant state indicators
+- Voice activity visualization
+- Dark futuristic interface
+- Real-time interaction feedback
+
+---
+
+## 🏗️ Architecture
+
+JARVIS follows a modular architecture where user input is interpreted, routed, and then handled by the appropriate AI or action component.
+
+```text
+                    ┌──────────────────────┐
+                    │       USER           │
+                    │  Voice / Keyboard    │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │    INPUT LAYER       │
+                    │ STT / Text / Wake    │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │   AI / ROUTING CORE  │
+                    │ Intent + Reasoning   │
+                    └──────────┬───────────┘
+                               │
+                  ┌────────────┼────────────┐
+                  │            │            │
+                  ▼            ▼            ▼
+             ┌─────────┐ ┌──────────┐ ┌──────────┐
+             │ Gemini  │ │  Ollama  │ │  Memory  │
+             │ Online  │ │  Local   │ │  System  │
+             └────┬────┘ └─────┬────┘ └────┬─────┘
+                  │             │            │
+                  └─────────────┼────────────┘
+                                ▼
+                    ┌──────────────────────┐
+                    │     ACTION LAYER     │
+                    │ Desktop / Web / Apps │
+                    └──────────┬───────────┘
+                               │
+                               ▼
+                    ┌──────────────────────┐
+                    │     JARVIS HUD       │
+                    │  Response / Status   │
+                    └──────────────────────┘
+```
+
+---
+
+## 🔀 Hybrid AI
+
+One of the major development directions of JARVIS is a hybrid AI architecture.
+
+```text
+                 User Request
+                      │
+                      ▼
+                Request Router
+                      │
+             ┌────────┴────────┐
+             │                 │
+       Internet Available?     │
+             │                 │
+          ┌──┴──┐              │
+         YES    NO              │
+          │      │              │
+          ▼      ▼              │
+       Gemini  Ollama           │
+       Online   Local           │
+          │      │              │
+          └──┬───┘              │
+             ▼                  │
+        Action / Response ◄─────┘
+```
+
+The goal is to allow JARVIS to use cloud-based AI when connectivity is available while providing a local execution path through **Ollama and local LLMs**.
+
+> **Offline AI support is currently under active development.**
+
+---
+
+## 🧩 Core Components
+
+| Component | Purpose |
+|---|---|
+| **AI Core** | Reasoning and conversational intelligence |
+| **Request Router** | Determines how a request should be handled |
+| **Action Layer** | Performs controlled desktop and web operations |
+| **Memory System** | Stores and retrieves persistent context |
+| **Voice Layer** | Wake word, STT and TTS interaction |
+| **Vision Layer** | Screen and camera understanding |
+| **JARVIS HUD** | Visual interface and system feedback |
+| **Local AI** | Ollama-based local model execution |
+
+---
+
+## 🛠️ Technology Stack
+
+### Core
+
+- Python
+- PyQt
+- Modular Python architecture
+
+### AI
+
+- Google Gemini
+- Ollama
+- Local Large Language Models
+
+### Voice
+
+- Speech-to-Text
+- Text-to-Speech
+- Wake-word detection
+- Voice activity processing
+
+### Perception
+
+- Screen analysis
+- Webcam analysis
+- Multimodal AI interaction
+
+### Automation
+
+- Desktop application control
+- Browser interaction
+- File operations
+- System utilities
+
+### Memory
+
+- Local persistent memory
+- Conversation context
+- User-specific preferences
+
+---
+
+## 📁 Project Structure
+
+```text
+JARVIS2/
+│
+├── actions/              # Desktop and task execution modules
+├── core/                 # Core AI and assistant logic
+├── memory/               # Persistent memory and context
+├── config/               # Local configuration
+├── ui/                   # JARVIS interface and HUD
+├── models/               # Model-related components
+│
+├── main.py               # Application entry point
+├── requirements.txt      # Python dependencies
+├── setup.py              # Project configuration
+└── .gitignore            # Repository exclusions
+```
+
+> **API credentials and other sensitive configuration files are intentionally excluded from version control.**
+
+---
 
 ## 🚀 Getting Started
 
-### Prerequisites
-- **Python**: 3.8 or higher
-- **pip**: Python package installer
-- **Node.js**: For web automation features
+### Requirements
 
-### Installation
+- Python 3.10+
+- Windows 10/11
+- Microphone for voice interaction
+- Internet connection for cloud AI features
+- Ollama for local AI features
 
-1.  **Clone the repository**
-    ```bash
-    git clone https://github.com/yourusername/JARVIS-Desktop-AI.git
-    cd JARVIS-Desktop-AI
-    ```
+### 1. Clone the repository
 
-2.  **Install dependencies**
-    ```bash
-    pip install -r requirements.txt
-    ```
+```bash
+git clone https://github.com/melvingeo-04/Desktop-AI-Assistant.git
+cd Desktop-AI-Assistant
+```
 
-3.  **Install Node.js dependencies**
-    ```bash
-    cd automation/web_automation
-    npm install
-    cd ..
-    ```
+### 2. Create a virtual environment
 
-4.  **Configure API Keys**
-    Create a `config/api_keys.json` file with your API credentials:
-    ```json
-    {
-      "gemini": "YOUR_GEMINI_API_KEY",
-      "openai": "YOUR_OPENAI_API_KEY",
-      "whatsapp": "YOUR_WHATSAPP_API_KEY"
-    }
-    ```
+```bash
+python -m venv venv
+```
 
-### Running the Application
+Activate it on Windows:
 
-Start JARVIS with a simple command:
+```powershell
+venv\Scripts\activate
+```
+
+### 3. Install dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Configure local credentials
+
+Create your local configuration file according to the project's configuration requirements.
+
+**Never commit API keys, access tokens, or credentials to GitHub.**
+
+### 5. Run JARVIS
 
 ```bash
 python main.py
 ```
 
-## 🎨 Customization
+---
 
-### Color Themes
+## 🔐 Security
 
-JARVIS supports full color customization. You can change the primary accent color and the entire theme will regenerate automatically.
+JARVIS is designed around **controlled computer interaction** rather than unrestricted model execution.
 
-**Change accent color:**
-```python
-# In main.py or configuration
-app_instance.set_ui_accent("#ff8c00")  # Hex color code
+Key principles include:
+
+- API credentials remain outside version control
+- AI responses are handled through application-controlled logic
+- System operations are exposed through defined action modules
+- Sensitive configuration is excluded from Git
+- Arbitrary model-generated commands should not be executed blindly
+
+Security and reliability remain ongoing development priorities as the assistant gains more autonomous capabilities.
+
+---
+
+## 🧪 Development Status
+
+JARVIS is an actively evolving project.
+
+### Current development
+
+- [x] Gemini-based AI interaction
+- [x] Voice interaction
+- [x] Keyboard interaction
+- [x] Persistent memory
+- [x] Desktop action system
+- [x] Custom JARVIS HUD
+- [x] Screen/webcam analysis
+- [ ] Ollama integration
+- [ ] Automatic online/offline routing
+- [ ] Expanded local-model capabilities
+- [ ] Further reliability and safety improvements
+
+---
+
+## 🗺️ Roadmap
+
+### Phase 1 — Core Assistant
+- Conversational AI
+- Voice interaction
+- Desktop automation
+- Persistent memory
+
+### Phase 2 — Hybrid Intelligence
+- Ollama integration
+- Local LLM support
+- Automatic network-aware routing
+- Online/offline mode switching
+
+### Phase 3 — Advanced Agent
+- Improved planning
+- More modular tools
+- Better multimodal reasoning
+- Stronger execution safeguards
+- More autonomous task workflows
+
+---
+
+## 🎯 Vision
+
+The goal of JARVIS is not simply to create another chatbot.
+
+The goal is to build a **personal desktop intelligence layer** capable of connecting:
+
+```text
+       Natural Language
+              │
+       ┌──────▼──────┐
+       │     AI      │
+       └──────┬──────┘
+              │
+      ┌───────┼────────┐
+      │       │        │
+    Memory  Vision  Reasoning
+      │       │        │
+      └───────┼────────┘
+              │
+        Computer Control
+              │
+              ▼
+            JARVIS
 ```
 
-**Built-in palettes:**
-- `#ff8c00` - Default (Orange)
-- `#00d4ff` - Cyan
-- `#00ff9d` - Green
-- `#ff6b6b` - Red
-- `#ffd800` - Yellow
+A system that can **understand what you ask, reason about what needs to happen, interact with the computer, remember useful context, and increasingly operate locally when privacy or connectivity demands it.**
 
-### Interface Configuration
+---
 
-Configure layout and visual preferences:
-```python
-config = {
-    "theme": "dark",
-    "accent_color": "#ff8c00",
-    "layout": "desktop",
-    "show_hud": True,
-    "voice_enabled": True,
-    "plugins": {
-        "weather": {
-            "city": "New York",
-            "units": "metric"
-        }
-    }
-}
-```
+## 👨‍💻 Author
 
-## 📂 Project Structure
+**Melvin George**
 
-```
-JARVIS-Desktop-AI/
-├── core/
-│   ├── avatar.py             # Holographic avatar implementation
-│   ├── dashboard.py          # Main application dashboard
-│   ├── brain.py              # AI model integration and logic
-│   └── plugins/              # Plugin architecture
-├── automation/
-│   ├── web_automation/       # Puppeteer browser automation
-│   └── system_automation/    # System control scripts
-├── memory/                   # Conversation history and preferences
-│   ├── history.json          # Conversation logs
-│   └── user_prefs.json       # User settings and preferences
-├── ui/
-│   ├── widgets/              # Reusable UI components
-│   ├── styles/               # CSS stylesheets and themes
-│   └── assets/               # Images, icons, and media files
-├── config/
-│   ├── api_keys.json         # API credentials (DO NOT COMMIT)
-│   └── settings.json         # Application settings
-├── models/                   # AI model configurations
-├── scripts/                  # Utility and helper scripts
-├── main.py                   # Application entry point
-├── requirements.txt          # Python dependencies
-└── readme.md                 # Project documentation
-```
+B.Tech Computer Science & Engineering
 
-## 🔌 Plugins
+GitHub: [@melvingeo-04](https://github.com/melvingeo-04)
 
-Extend JARVIS functionality with built-in and custom plugins.
+---
 
-### Built-in Plugins
-- **Weather**: Real-time weather updates for any location
-- **System Utilities**: File management, system monitoring, and automation
-- **Web Automation**: Browser control and website interactions
-- **Notifications**: Desktop notifications and alerts
+## 📌 Project
 
-### Creating Custom Plugins
+**Repository:**  
+https://github.com/melvingeo-04/Desktop-AI-Assistant
 
-Create a new plugin in `core/plugins/`:
-
-```python
-from core.plugins.plugin import Plugin
-
-class MyPlugin(Plugin):
-    def __init__(self):
-        super().__init__("my_plugin", "Description")
-
-    def run(self, args):
-        # Plugin logic here
-        return "Output message"
-```
-
-## 🔧 Development
-
-### Coding Standards
-- Adhere to PEP 8 guidelines
-- Use type hints for function signatures
-- Document all functions and classes
-- Keep functions focused and modular
-
-### Testing
-
-Run all tests with:
-```bash
-python -m pytest tests/
-```
-
-## 🤝 Contributing
-
-Contributions are welcome! Please follow these steps:
-
-1.  Fork the repository
-2.  Create a feature branch (`git checkout -b feature/AmazingFeature`)
-3.  Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4.  Push to the branch (`git push origin feature/AmazingFeature`)
-5.  Open a Pull Request
-
-
-
-## 📚 Documentation
-
-- [Installation Guide](docs/installation.md) - Detailed installation instructions
-- [Configuration Guide](docs/configuration.md) - API and UI configuration
-- [Plugin System](docs/plugins.md) - How to create and use plugins
-- [Developer Guide](docs/development.md) - Architecture and development standards
-
-## 📞 Support
-
-For issues and questions, please:
-1.  Check the [Troubleshooting](docs/troubleshooting.md) guide
-2.  Search for similar issues in [Issues](https://github.com/yourusername/JARVIS-Desktop-AI/issues)
-3.  Open a new issue with detailed information
-
-## 👥 Credits
-
-Built with ❤️ using:
-- **PyQt6**: For the stunning desktop interface
-- **Google Gemini**: For advanced AI capabilities
-- **Puppeteer**: For web automation
-- **Custom Avatar System**: For the holographic HUD
-
-##  🙏 Acknowledgments
-
-Special thanks to:
-- The open-source community
-- All contributors and testers
-- Developers of the libraries and frameworks used
+JARVIS is developed as an ongoing personal AI engineering project exploring **desktop agents, multimodal AI, local LLMs, intelligent automation, and human-computer interaction**.
